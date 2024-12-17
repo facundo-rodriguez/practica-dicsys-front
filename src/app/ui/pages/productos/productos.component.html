@@ -22,7 +22,7 @@
           <span class="precio-prod">Precio: {{ prod.precio }}</span
           ><br />
           <span class="stock-prod">Stock: {{prod.stock}}</span><br />
-          <span><b>- Categoria: {{ nombre }}</b></span>
+          <span><b>- Categoria: {{ nombre_categoria }}</b></span>
           <!-- <button>+ Carrito</button> -->
           <button *ngIf="logueado" class="btn btn-danger"  (click)="deleteProduct(prod.id_producto)" data-bs-toggle="modal" data-bs-target="#confirmModal">Eliminar</button>
           <button (click)="pagEditar(prod.id_producto)">Editar</button>
