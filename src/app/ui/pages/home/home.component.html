@@ -1,0 +1,111 @@
+
+
+<app-header></app-header>
+
+<div id="home">
+  
+  <app-slider></app-slider>
+    
+  <div class="center">
+    
+    <h1 class="subheader">{{globalText.nuestrasCategorias}}</h1>
+      
+    <div id="alertProduct" *ngIf="alertVisible" [class]="'alert alert-' + alertType" role="alert">
+      <button type="button" class="btn-close"  aria-label="Close" (click)="hideAlert()"></button>
+      {{ message }}
+    </div>
+    
+    <div *ngIf="getLogueado()"  style="text-align:center ;">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+        crear producto 
+      </button>
+    </div>
+
+    <div id="contenido">
+      
+      <div id="listCards">
+        <div *ngFor="let categoria of categorias" class="colLista">
+          <div  class="cardd" >
+            <div>
+              <img src="../../../../assets/img/lupa.jpg" alt="comida" />
+            </div>
+            <div class="contenidooo">
+              <h3>{{categoria.nombre_categoria}}</h3>
+              <button (click)="navigateProducts(categoria.id_categoria)">
+                Ver sus productos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+
+
+<!-- Modal de creación -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createModalLabel">Crear</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">        
+          <!-- (ngSubmit)="onSubmit()" -->
+          <form [formGroup]="createProductForm" > 
+            <div class="form-group">
+              <label for="nombre_producto">Nombre del Producto</label>
+              <input id="nombre_producto" formControlName="nombre_producto" class="form-control" />
+              <div *ngIf="createProductForm.get('nombre_producto').invalid && createProductForm.get('nombre_producto').touched" class="text-danger">
+                El nombre del producto es obligatorio.
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label for="precio">Precio</label>
+              <input id="precio" formControlName="precio" class="form-control" type="number" />
+              <div *ngIf="createProductForm.get('precio').invalid && createProductForm.get('precio').touched" class="text-danger">
+                El precio es obligatorio y debe ser mayor a 0.
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label for="stock">Stock</label>
+              <input id="stock" formControlName="stock" class="form-control" type="number" />
+              <div *ngIf="createProductForm.get('stock').invalid && createProductForm.get('stock').touched" class="text-danger">
+                El stock es obligatorio y debe ser mayor a 0.
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="id_categoria">Categoría de Producto</label>
+              <select id="id_categoria" formControlName="id_categoria" class="form-control">
+                <option value="" disabled selected>Selecciona un tipo de producto</option>
+                <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombre_categoria }}</option>
+              </select>
+              <div *ngIf="createProductForm.get('id_categoria').invalid && createProductForm.get('id_categoria').touched" class="text-danger">
+                El tipo de producto es obligatorio.
+              </div>
+            </div>
+        
+            <!-- <button type="submit" [disabled]="createProductForm.invalid" class="btn btn-primary">Guardar cambios</button> -->
+            <!-- <button class="btn btn-primary" [disabled]="createProductForm.invalid" data-bs-toggle="modal" data-bs-target="#confirmModal">Editar</button> -->
+        
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal"  aria-label="Close" >Cancelar</button>
+        <button type="button" class="btn btn-primary"  [disabled]="createProductForm.invalid" aria-label="Close" (click)="onCreate()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

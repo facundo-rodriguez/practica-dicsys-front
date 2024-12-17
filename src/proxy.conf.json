@@ -1,0 +1,9 @@
+
+
+{
+  "/api": {
+    "target": "https://practica-node-dicsys.onrender.com",
+    "secure": false,
+    "changeOrigin":true
+  }
+}

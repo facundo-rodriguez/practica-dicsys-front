@@ -1,0 +1,119 @@
+/* General */
+.center {
+  width: 75%;
+  margin: 10px auto;
+
+}
+
+
+#contenido {
+  width: 100%;
+  float: left;
+  min-height: 450px;
+  margin-right: 20px;
+}
+
+.item-prod {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 17px;
+  padding-top: 15px;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.item-prod .image-wrap {
+  width: 150px; /* Ajustar tamaño */
+  height: 130px; /* Ajustar tamaño */
+  overflow: hidden;
+  float: left;
+  margin-right: 20px; /* Espacio entre la imagen y el texto */
+  margin-left: 10px; /* Espacio desde el borde izquierdo */
+  border: 1px solid #ccc;
+  padding: 10px; /* Añadido padding para evitar que la imagen toque el borde del contenedor */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-prod .stock-prod {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
+.item-prod .precio-prod {
+  position: absolute;
+  top: 22px;
+  right: 20px;
+}
+
+.item-prod .image-wrap img {
+  max-width: 100%; /* La imagen ocupa el 100% del contenedor */
+  height: auto; /* Mantiene la proporción sin recortar */
+  object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortarla */
+}
+
+.item-prod h2 {
+  display: block;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 7px;
+}
+
+.item-prod button {
+  float: right;
+  margin-right: 26px;
+  padding: 5px;
+  border: none;
+  background: #00438e;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .item-prod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Imagen ajustada */
+  .item-prod .image-wrap {
+    width: 80%; /* Ajusta el tamaño de la imagen al 80% del contenedor */
+    height: auto; /* La altura se ajusta automáticamente para mantener las proporciones */
+    margin-right: 0;
+    margin-bottom: 15px;
+    padding: 10px; /* Añade espacio alrededor de la imagen */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+  }
+
+  /* Precio y stock en vertical */
+  .item-prod .precio-prod,
+  .item-prod .stock-prod {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .item-prod .precio-prod {
+    margin-bottom: 5px;
+  }
+
+  /* Botones en columna */
+  .item-prod button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .item-prod button:first-child {
+    margin-top: 15px;
+  }
+}

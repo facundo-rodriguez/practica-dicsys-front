@@ -1,0 +1,67 @@
+
+<app-header></app-header>
+
+<!-- <div *ngIf="alertVisible" [class]="'alert alert-' + alertType" role="alert">
+  <button type="button" class="btn-close" (click)="hideAlert()" aria-label="Close"></button>
+  {{ message }}
+</div> -->
+
+<div class="center">
+  <div id="contenido">
+    <div class="Productos">
+      <h1>Productos de: {{ nombre_categoria }}</h1>
+      <div id="listProductos">
+        <article class="item-prod" id="article-template" *ngFor="let prod of productos">
+          <div class="image-wrap">
+            <img src="../assets/img/lupa.jpg" alt="comida" />
+          </div>
+          <h2>{{ prod.nombre_producto }}</h2>
+          <div class="cont-spanProd">
+            <span class="span-cardProd">Descripcion:</span><br />
+          </div>
+          <span class="precio-prod">Precio: {{ prod.precio }}</span
+          ><br />
+          <span class="stock-prod">Stock: {{prod.stock}}</span><br />
+          <span><b>- Categoria: {{ nombre }}</b></span>
+          <!-- <button>+ Carrito</button> -->
+          <button *ngIf="logueado" class="btn btn-danger"  (click)="deleteProduct(prod.id_producto)" data-bs-toggle="modal" data-bs-target="#confirmModal">Eliminar</button>
+          <button (click)="pagEditar(prod.id_producto)">Editar</button>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+<app-footer></app-footer>
+
+
+
+<app-modal-confirm
+  [title]="'Eliminar producto'"
+  [message]="'¿Estás seguro de Eliminar este producto?'"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-modal-confirm>
+
+
+<!-- Modal de Confirmación de borrado -->
+<div  class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmModalLabel">Producto eliminado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{ message }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="hideAlert()"  aria-label="Close" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

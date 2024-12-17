@@ -1,0 +1,42 @@
+
+{
+    "categorias":   [
+        {
+            "id":1,
+            "nombre":"cate 1"
+        },
+        {
+            "id":2,
+            "nombre":"cate 2"
+        },
+        {
+            "id":3,
+            "nombre":"cate 3"
+        }
+    ],
+
+    "productos":[
+        {
+            "id":1,
+            "nombre":"prod 1",
+            "precio":123.1,
+            "stock":20,
+            "id_categoria":1
+        },
+        {
+            "id":2,
+            "nombre":"prod 2",
+            "precio":123.1,
+            "stock":20,
+            "id_categoria":1
+        },{
+            "id":3,
+            "nombre":"prod 3",
+            "precio":123.1,
+            "stock":20,
+            "id_categoria":1
+        }
+    ]
+
+
+}

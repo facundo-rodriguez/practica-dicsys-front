@@ -1,0 +1,88 @@
+
+
+<app-header></app-header>
+
+
+<div class="container">
+    <h2 class="text-center">Editar Producto</h2>
+  
+  <!-- (ngSubmit)="onSubmit()" -->
+  <form [formGroup]="productoForm" > 
+    <div class="form-group">
+      <label for="nombre_producto">Nombre del Producto</label>
+      <input id="nombre_producto" formControlName="nombre_producto" class="form-control" />
+      <div *ngIf="productoForm.get('nombre_producto').invalid && productoForm.get('nombre_producto').touched" class="text-danger">
+        El nombre del producto es obligatorio.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="precio">Precio</label>
+      <input id="precio" formControlName="precio" class="form-control" type="number" />
+      <div *ngIf="productoForm.get('precio').invalid && productoForm.get('precio').touched" class="text-danger">
+        El precio es obligatorio y debe ser mayor a 0.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="stock">Stock</label>
+      <input id="stock" formControlName="stock" class="form-control" type="number" />
+      <div *ngIf="productoForm.get('stock').invalid && productoForm.get('stock').touched" class="text-danger">
+        El stock es obligatorio y debe ser mayor a 0.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="id_categoria">Categoría de Producto</label>
+      <select id="id_categoria" formControlName="id_categoria" class="form-control">
+        <option value="" disabled selected>Selecciona un tipo de producto</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id_categoria">{{ categoria.nombre_categoria }}</option>
+      </select>
+      <div *ngIf="productoForm.get('id_categoria').invalid && productoForm.get('id_categoria').touched" class="text-danger">
+        El tipo de producto es obligatorio.
+      </div>
+    </div>
+
+    <!-- <button type="submit" [disabled]="productoForm.invalid" class="btn btn-primary">Guardar cambios</button> -->
+    <button class="btn btn-primary" [disabled]="productoForm.invalid" data-bs-toggle="modal" data-bs-target="#confirmModal">Editar</button>
+
+  </form>
+</div>
+
+<div *ngIf="alertVisible" [class]="'alert alert-' + alertType" role="alert">
+  <button type="button" class="btn-close" (click)="hideAlert()" aria-label="Close"></button>
+  {{ message }}
+</div>
+
+
+<app-modal-confirm
+  [title]="'Editar Elemento'"
+  [message]="'¿Estás seguro de Editar este elemento?'"
+  (confirm)="onConfirm()"
+  (cancel)="onCancel()">
+</app-modal-confirm>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

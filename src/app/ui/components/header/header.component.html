@@ -1,0 +1,38 @@
+<!-- 
+<header id="header">
+    <div class="center">
+      <div id="logo">
+        <span id="brand">{{ globalText.titulo }}</span>
+      </div>
+      <nav id="menu">
+        <ul>
+          <li (click)="navigateHome()">{{ globalText.categorias }}</li>
+          <li>{{ globalText.carrito }}</li>
+          <li>{{ globalText.login }}</li>
+        </ul>
+      </nav>
+    </div>
+</header>
+ -->
+
+
+<header id="header">
+
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{ globalText.titulo }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="justify-content-end collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li  class="nav-link " (click)="navigateHome()">{{ globalText.categorias }}</li>
+          <!-- <li  class="nav-link" >{{ globalText.carrito }}</li> -->
+          <li *ngIf="!logueado" class="nav-link" (click)="navigateLogin()">{{ globalText.login }}</li>
+          <li *ngIf="logueado" class="nav-link" (click)="logout()"> logout</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>

@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .center {
+      width: 90%; /* Reducir el ancho */
+      margin: 0 auto;
+    }
+  
+    #listCards {
+      /* flex-direction: column; Cambiar a una sola columna */
+      margin: 20px;
+    }
+  
+    .cardd {
+      width: 100%; /* Usar todo el ancho */
+      max-width: none;
+      margin: 20px 0; /* Espaciado vertical */
+    }
+  
+    #slider h1 {
+      font-size: 2rem; /* Reducir tamaño del texto */
+      padding-top: 80px;
+    }
+  
+    #slider h3 {
+      font-size: 1rem;
+    }
+  
+    #header #menu ul li {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+  
+  /* Ajuste para pantallas muy pequeñas (móviles) */
+  @media (max-width: 480px) {
+    #slider h1 {
+      font-size: 1.5rem;
+      padding-top: 60px;
+    }
+  
+    #slider h3 {
+      font-size: 0.9rem;
+    }
+  
+    #menu ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    #menu ul li {
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+  
+    #footer {
+      font-size: 0.8rem;
+    }
+  }
+  
